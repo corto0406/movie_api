@@ -1,24 +1,29 @@
 <!doctype html>
 
-
-I am learning how to correspond between files in browser
-
-Add list of my favorite movies
+-Explanation about Students list
 
 
-                 Immersion 2.5.
+GET
 
-                 
-   request:get a list of students
-   url:/students 
-   respond format:JSON             
+posibility that client side has view in our app without any changes
 
- GET
- 
- 
- The first line of code routes the request to the server, while the second line of code defines the format of the response that the server will send back. Think back to the table with all the request and response body data from above. For all GET requests to the “/students” URL endpoint, it specified that the server should return “a JSON object holding data about all the students”
+in our situation list of students is visible
+
+POST
+
+posibility in which client side can insert some data material
+
+in our case JSON of students can be reduse
 
 
- POST
+PUT
 
- This time, the code is routed for POST requests. The code takes data from the request (in this case, data about a new student) and adds it as a new element to the array already on the server (students.push(newStudent);). (If this application connected to an external database rather than storing the data in-memory, you’d be adding the element to that database instead.)
+posibility in which we can update data material
+
+in our case grades by name and classes
+
+DELETE
+
+posibility in which we can remove some parths from list
+
+in particulary case names of students by id
