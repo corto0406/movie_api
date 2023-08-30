@@ -11,7 +11,8 @@ const { check, validationResult } = require('express-validator');
 const Movies = Models.Movie;
 const Users = Models.User;
 
-mongoose.connect('mongodb://localhost:27017/cfDB', { useNewUrlParser: true, useUnifiedTopology: true });
+//mongoose.connect('mongodb://localhost:27017/cfDB', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 
 const cors = require('cors');
@@ -65,6 +66,8 @@ app.get('/movies', (req, res) => {
 app.get('/movies/:title', passport.authenticate('jwt', { session: false }),
 	(req, res) => {
 		const { title } = req.params;
+		console.log(title)
+		console.log("!!!!!!")
 		Movies.findOne({ Title: req.params.title })
 			.then((movie) => {
 				if (movie) {
@@ -270,7 +273,7 @@ app.use((err, req, res, next) => {
 
 
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 app.listen(port, '0.0.0.0',() => {
  console.log('Listening on Port ' + port);
 });
