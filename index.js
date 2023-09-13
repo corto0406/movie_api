@@ -16,7 +16,7 @@ mongoose.connect(process.env.CONNECTION_URI, { useNewUrlParser: true, useUnified
 
 
 const cors = require('cors');
-let allowedOrigins = ['http://localhost:8080', 'http://testsite.com','https://movie-place-35ed6ca44a78.herokuapp.com'];
+let allowedOrigins = ['http://testsite.com','https://movie-place-35ed6ca44a78.herokuapp.com'];
 
 app.use(cors({
 	origin: (origin, callback) => {
@@ -66,8 +66,6 @@ app.get('/movies', (req, res) => {
 app.get('/movies/:title', passport.authenticate('jwt', { session: false }),
 	(req, res) => {
 		const { title } = req.params;
-		console.log(title)
-		console.log("!!!!!!")
 		Movies.findOne({ Title: req.params.title })
 			.then((movie) => {
 				if (movie) {
