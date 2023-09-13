@@ -16,7 +16,7 @@ mongoose.connect(process.env.CONNECTION_URI, { useNewUrlParser: true, useUnified
 
 
 const cors = require('cors');
-let allowedOrigins = ['http://testsite.com','https://movie-place-35ed6ca44a78.herokuapp.com'];
+let allowedOrigins = ['http://testsite.com','https://movie-place-35ed6ca44a78.herokuapp.com','http://localhost:1234'];
 
 app.use(cors({
 	origin: (origin, callback) => {
@@ -50,7 +50,7 @@ app.get('/', (req, res) => {
 });
 
 
-//get all movies
+//get all movies,new version
 app.get('/movies', (req, res) => {
 	Movies.find()
 		.then((movies) => {
